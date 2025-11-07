@@ -12,7 +12,7 @@ module.exports = {
       url: "http://127.0.0.1:8545",
     },
     ganache: {
-      url: "http://192.168.1.24:7545", // ✅ Mặc định của Ganache UI
+      url: "http://192.168.1.35:7545", // ✅ Mặc định của Ganache UI
       accounts: [process.env.GANACHE_PRIVATE_KEY], // 🔑 lấy từ Ganache UI
       chainId: 1337, // hoặc 5777 (tuỳ Ganache)
     },

@@ -12,7 +12,7 @@ async function main() {
   console.log("👤 Triển khai bằng địa chỉ:", deployer.address);
 
   // 🧱 Triển khai contract
-  const Verifier = await ethers.getContractFactory("OnchainVerifier");
+  const Verifier = await ethers.getContractFactory("TallyVerifierOnChain");
   const verifier = await Verifier.deploy();
 
   await verifier.waitForDeployment();
