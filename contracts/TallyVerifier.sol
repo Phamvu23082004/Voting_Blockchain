@@ -6,7 +6,7 @@ import "./TallyValidityVerifier.sol"; // file do snarkjs export ra (Groth16Verif
 contract TallyVerifierOnChain is TallyValidityVerifier{
     event ProofVerified(address indexed sender, bool isValid, bytes32 proofHash);
 
-    function submitProof(   
+    function submitTallyProof(   
         uint[2] calldata a,
         uint[2][2] calldata b,
         uint[2] calldata c,

@@ -3,17 +3,17 @@ pragma solidity >=0.7.0 <0.9.0;
 
 import "./HashCommitCheckVerifier.sol"; // file do snarkjs export ra (Groth16Verifier)
 
-contract OnchainVerifier is Groth16Verifier{
+contract OnchainHashVerifier is Groth16Verifier{
     event ProofVerified(address indexed sender, bool isValid, bytes32 proofHash);
 
     // 🧩 Aggregator chỉ cần gọi để nộp proof, không cần lưu lại mapping
-    function submitProof(   
+    function submitHashProof(   
         uint[2] calldata a,
         uint[2][2] calldata b,
         uint[2] calldata c,
         uint[1] calldata inputSignals
     ) external returns (bool) {
-        bool ok = _safeVerifyProof(a, b, c, inputSignals);
+        bool ok = _safeVerifyHashProof(a, b, c, inputSignals);
 
         require(ok, "Invalid proof");
 
@@ -25,7 +25,7 @@ contract OnchainVerifier is Groth16Verifier{
     }
 
     // ✅ Hàm xác minh proof nội bộ an toàn, không revert nếu verifier lỗi
-    function _safeVerifyProof(
+    function _safeVerifyHashProof(
         uint[2] memory pA,
         uint[2][2] memory pB,
         uint[2] memory pC,
